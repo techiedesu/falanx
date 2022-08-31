@@ -1,19 +1,19 @@
 version 5.195.4
 
 source https://www.nuget.org/api/v2
-framework: netcoreapp3.1, netstandard2.0
+framework: net6.0, netstandard2.0
 storage: none
 
 nuget ArgU
 nuget FSAst
 nuget FSharp.Compiler.Service 25.0.1
-nuget FSharp.Core 4.5.4 strategy: min
+nuget FSharp.Core 6.0.3 strategy: min
 nuget Fantomas 2.9.2
 nuget FParsec 1.0.3
 nuget Froto.Parser
 nuget Froto.Serialization
 nuget Fleece.NewtonsoftJson 0.8.0
-nuget Newtonsoft.Json 11.0.2
+nuget Newtonsoft.Json 13.0.1
 
 nuget Microsoft.SourceLink.GitHub 1.0.0 copy_local: true
 
@@ -23,7 +23,7 @@ github 7sharp9/FSharp.TypeProviders.SDK:falanx src/ProvidedTypesTesting.fs 5dd07
 
 group IntegrationTests
 source https://www.nuget.org/api/v2
-framework: netcoreapp3.1, netstandard2.0
+framework: net6.0, netstandard2.0
 storage: none
 
 nuget FSharp.Core 4.5.4 strategy: min
