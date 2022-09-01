@@ -29,7 +29,7 @@
   <!-- use the falanx generator binary directly -->
   <PropertyGroup>
     <FalanxSdk_GeneratorExeHost>dotnet </FalanxSdk_GeneratorExeHost>
-    <FalanxSdk_GeneratorExe>..\..\src\Falanx.Tool\bin\$(Configuration)\netcoreapp3.1\falanx.dll</FalanxSdk_GeneratorExe>
+    <FalanxSdk_GeneratorExe>$(MSBuildProjectDirectory)\..\..\src\Falanx.Tool\bin\$(Configuration)\falanx.dll</FalanxSdk_GeneratorExe>
   </PropertyGroup>
   <!-- include to enable the generation of these formats -->
   <Import Project="..\..\src\Falanx.Proto.Codec.Binary\build\Falanx.Proto.Codec.Binary.props" />
