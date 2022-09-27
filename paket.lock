@@ -111,7 +111,7 @@ NUGET
     System.Collections.Immutable (6.0)
       System.Memory (>= 4.5.4) - restriction: || (&& (== net6.0) (>= net461)) (== netstandard2.0)
       System.Runtime.CompilerServices.Unsafe (>= 6.0)
-    System.Configuration.ConfigurationManager (6.0)
+    System.Configuration.ConfigurationManager (6.0.1)
       System.Security.Cryptography.ProtectedData (>= 6.0)
       System.Security.Permissions (>= 6.0)
     System.Diagnostics.Debug (4.3)
@@ -305,11 +305,7 @@ NUGET
       System.Runtime.Handles (>= 4.3)
     System.Windows.Extensions (6.0) - restriction: || (== net6.0) (&& (== netstandard2.0) (>= netcoreapp3.1))
       System.Drawing.Common (>= 6.0) - restriction: || (== net6.0) (&& (== netstandard2.0) (>= netcoreapp3.1))
-GITHUB
-  remote: 7sharp9/FSharp.TypeProviders.SDK
-    src/ProvidedTypes.fs (b9955a1905354e7aeec1fbc0b1f8ca1f42b2e90b) 5dd0739e04416e53222e3a179038b99ad2611e86
-    src/ProvidedTypes.fsi (b9955a1905354e7aeec1fbc0b1f8ca1f42b2e90b) 5dd0739e04416e53222e3a179038b99ad2611e86
-    src/ProvidedTypesTesting.fs (b9955a1905354e7aeec1fbc0b1f8ca1f42b2e90b) 5dd0739e04416e53222e3a179038b99ad2611e86
+
 GROUP IntegrationTests
 STORAGE: NONE
 RESTRICTION: || (== net6.0) (== netstandard2.0)
