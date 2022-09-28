@@ -159,10 +159,6 @@ namespace ProviderImplementation.ProvidedTypes
             static member CreateEmpty (typ : Type) =
                 let gtype = typedefof<Attributes<_>>.MakeGenericType([| typ |])
                 let gmethod = gtype.GetMethod("Empty", BindingFlags.Static ||| BindingFlags.NonPublic )
-                printfn "HORNY!! %s" (string (gmethod = null))
-                printfn "HORNY!! %s" (string (gmethod = null))
-                printfn "HORNY!! %s" (string (gmethod = null))
-                printfn "HORNY!! %s" (string (gmethod = null))
                 if gmethod = null |> not then
                     gmethod.Invoke(null, [||]) :?> obj array
                 else
