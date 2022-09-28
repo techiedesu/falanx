@@ -690,7 +690,7 @@ module internal Targets =
          | "4.1", "portable78" -> fsharpInstalledAssembliesRoot() ++ ".NETCore" ++ "3.78.4.1" ++ "FSharp.Core.dll" |> Some
          | "4.1", "portable259" -> fsharpInstalledAssembliesRoot() ++ ".NETCore" ++ "3.259.4.1" ++ "FSharp.Core.dll" |> Some
          | "4.1", "netstandard1.6" -> None
-         | "4.1", "netstandard2.0" -> None
+         | "4.1", "netstandard2.1" -> None
          | "4.1", "netcoreapp2.0" -> None
          | _ -> failwith (sprintf "unimplemented  profile, fsharpVersion = %s, profile = %s" fsharp profile)
 
@@ -715,8 +715,8 @@ module internal Targets =
             match profile with
             | "net45"    -> ["net45";"net40" ]
             | "netstandard1.6"    -> [ "netstandard1.6" ]
-            | "netstandard2.0"    -> [ "netstandard2.0"; "netstandard1.6" ]
-            | "netcoreapp2.0"    -> [ "netcoreapp2.0"; "netstandard2.0"; "netstandard1.6" ]
+            | "netstandard2.1"    -> [ "netstandard2.1"; "netstandard1.6" ]
+            | "netcoreapp2.0"    -> [ "netcoreapp2.0"; "netstandard2.1"; "netstandard1.6" ]
             | "portable47"    -> ["portable-net45+sl5+netcore45"]
             | "portable7"     -> ["portable-net45+netcore45"]
             | "portable78"    -> ["portable-net45+netcore45+wp8"]
@@ -740,9 +740,9 @@ module internal Targets =
     let sysAssembliesPath profile =
         match profile with
         | "net45"-> installedNet45AssembliesRoot()
-        | "netstandard2.0"->
+        | "netstandard2.1"->
             let packageDir = paketPackageFromMainPaketGroup "NETStandard.Library" 
-            packageDir ++ "build" ++ "netstandard2.0" ++ "ref"
+            packageDir ++ "build" ++ "netstandard2.1" ++ "ref"
         | "netcoreapp2.0"->
             let packageDir = paketPackageFromMainPaketGroup "Microsoft.NETCore.App" 
             packageDir ++ "ref" ++ "netcoreapp2.0"
@@ -789,7 +789,7 @@ module internal Targets =
               yield sysPath ++ "System.Core.dll"
               yield sysPath ++ "System.Xml.Linq.dll"
               yield sysPath ++ "System.dll" 
-          | "netstandard2.0" ->
+          | "netstandard2.1" ->
              // See typical command line in https://github.com/fsprojects/FSharp.TypeProviders.SDK/issues/190#issuecomment-356564344
              let sysPath = sysAssembliesPath profile
              yield sysPath ++ "Microsoft.Win32.Primitives.dll"
@@ -1075,12 +1075,12 @@ module internal Targets =
     let Portable7FSharp41Refs() = FSharpRefs "4.1" "portable7"
     let Portable78FSharp41Refs() = FSharpRefs "4.1" "portable78"
     let Portable259FSharp41Refs() = FSharpRefs "4.1" "portable259"
-    let DotNetStandard20FSharp41Refs() = FSharpRefs "4.1" "netstandard2.0"
+    let DotNetStandard20FSharp41Refs() = FSharpRefs "4.1" "netstandard2.1"
     let DotNetCoreApp20FSharp41Refs() = FSharpRefs "4.1" "netcoreapp2.0"
     
     let FSharpCore45Ref() = FSharpCoreRef "4.5" "net45"
     let DotNet45FSharp45Refs() = FSharpRefs "4.5" "net45"
-    let DotNetStandard20FSharp45Refs() = FSharpRefs "4.5" "netstandard2.0"
+    let DotNetStandard20FSharp45Refs() = FSharpRefs "4.5" "netstandard2.1"
     let DotNetCoreApp20FSharp45Refs() = FSharpRefs "4.5" "netcoreapp2.0"
     
     let supportsFSharp31() = (try File.Exists (FSharpCore31Ref()) with _ -> false)
